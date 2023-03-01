@@ -2,7 +2,7 @@
 #COLORS
 #https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
-#TEXT COLORS
+#TEXT COLORS!
 DegaultT="\e[39m"
 BlackT="\e[30m"
 RedT="\e[31m"
