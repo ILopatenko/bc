@@ -23,5 +23,5 @@ printDefaultMenu7Lines(){
    echo -e "                                                   ${reset}"
    echo ""
    echo ""
-   sleep 0.5
+   sleep 0.1
 }

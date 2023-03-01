@@ -20,11 +20,11 @@ askYesNoQuestion(){
 askYesNoQuestionWithActions(){
    if askYesNoQuestion "$1 Would you like to $2? [y/n] "; then
       echo -e "${done}OK. You want to $2${reset}"
-      sleep 1
+      sleep 0.5
       $3
    else
       echo -e "${error}NO. You don't want to $2${reset}"
-      sleep 1
+      sleep 0.5
       $4
    fi
 }
