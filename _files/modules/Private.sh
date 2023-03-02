@@ -50,7 +50,7 @@ QMDisks(){
 
 
 QM52(){
-   askYesNoQuestionWithActions "2." "$Q52" serverMain
+   askYesNoQuestionWithActions "2." "$Q52" evgaZ15
 }
 QM53(){
    askYesNoQuestionWithActions "3." "$Q53" desktopMain

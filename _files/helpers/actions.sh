@@ -95,3 +95,29 @@ allTheStorages(){
    createFolderForMount "ssdMedia"
    sudo bash ./_files/helpers/fstab.sh $currentUser "all"
 }
+
+evgaZ15(){
+sudo add-apt-repository ppa:thopiekar/openrgb -y && sudo apt update && sudo apt install openrgb -y
+}
+
+
+oracleSSHprepare(){
+   type=$1
+   path="/home/slon/Storage/ssdIT/_SSH-keys/myOracle/$type"
+   oracleUserName="ubuntu"
+   keyName=$(find $path -name "*.key")
+   chmod 400 $keyName
+   serverIP=$(cat $path/ip.txt)
+   ssh -o StrictHostKeyChecking=no -i $keyName $oracleUserName@$serverIP "sudo apt update && sudo apt upgrade -y && sudo apt install git -y && git clone https://github.com/ilopatenko/bc && sudo fallocate -l 2048M /root/swapfile && ls -lh /root/swapfile && chmod 600 /root/swapfile && mkswap /root/swapfile && swapon /root/swapfile && echo "/root/swapfile none swap sw 0 0" >> /etc/fstab &&sudo reboot"
+}
+
+
+oracleSSHconnect(){
+   type=$1
+   path="/home/slon/Storage/ssdIT/_SSH-keys/myOracle/$type"
+   oracleUserName="ubuntu"
+   keyName=$(find $path -name "*.key")
+   chmod 400 $keyName
+   serverIP=$(cat $path/ip.txt)
+   ssh -o StrictHostKeyChecking=no -i $keyName $oracleUserName@$serverIP
+}
