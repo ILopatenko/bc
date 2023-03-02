@@ -25,7 +25,7 @@ mt26="INSTALL DOCKER STACK "
 res="${GrayDT}       RESERVED      "
 
 #MAIN MENU QUESTIONS
-Q21="prepare your new Oracle Server (check SSH keys, SSH to the server, create SWAP, update and upgrade and reboott the server)"
+Q21="prepare your new Oracle Server (check SSH keys, SSH to the server, clone this script)"
 Q211="setup Netmaker VPN Server"
 Q212="setup NginX Server"
 
@@ -33,7 +33,10 @@ Q22="connect to your Oracle Server"
 Q221="connect to your Netmaker Oracle Server"
 Q222="connect to your NginX Oracle Server"
 
-Q23="install all the initial soft"
+Q23="install all the initial soft and create a SWAP"
+Q231="crewate SPAP partition 2 Gb"
+Q232="install openssh-server git nano wget tar htop nfs-common p7zip-full gpg"
+
 Q24="connect to the server common LAN NFS share ryzen2ter"
 
 Q25="setup VPN Netmaker"
@@ -64,8 +67,17 @@ oracleSSHconnectQuestions(){
 }
 
 QM23(){
-   askYesNoQuestionWithActions "2.3." "$Q23" generalTools
+   askYesNoQuestionWithActions "2.3." "$Q23" firstLoginQuestions
 }
+firstLoginQuestions(){
+   askYesNoQuestionWithActions "2.3.1." "$Q231" oracleSwap
+   askYesNoQuestionWithActions "2.3.2." "$Q232" generalTools
+}
+
+
+
+
+
 QM24(){
    askYesNoQuestionWithActions "2.4." "$Q24" lanNFSryzen2ter
 }

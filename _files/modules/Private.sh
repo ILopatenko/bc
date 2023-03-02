@@ -6,7 +6,7 @@ source ./_files/helpers/actions.sh
 
 privateMain(){
 
-   for i in {1..5}; do
+   for i in {1..2}; do
       renderPrivateMenu $i
    done
 }
