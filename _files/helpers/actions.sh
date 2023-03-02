@@ -97,7 +97,7 @@ allTheStorages(){
 }
 
 evgaZ15(){
-sudo add-apt-repository ppa:thopiekar/openrgb -y && sudo apt update && sudo apt install openrgb -y
+  sudo add-apt-repository ppa:thopiekar/openrgb -y && sudo apt update && sudo apt install openrgb -y
 }
 
 
@@ -120,4 +120,31 @@ oracleSSHconnect(){
    chmod 400 $keyName
    serverIP=$(cat $path/ip.txt)
    ssh -o StrictHostKeyChecking=no -i $keyName $oracleUserName@$serverIP
+}
+
+
+
+#######
+generalTools(){
+   sudo apt install openssh-server git nano wget tar htop nfs-common p7zip-full gpg -y
+   finished
+}
+
+dockerStack(){
+   wget https://gitlab.com/bmcgonag/docker_installs/-/raw/main/install_docker_nproxyman.sh
+   chmod +X install_docker_nproxyman.sh
+   bash install_docker_nproxyman.sh
+}
+
+
+netmakerServer(){
+   sudo wget -qO /root/nm-quick-interactive.sh https://raw.githubusercontent.com/gravitl/netmaker/master/scripts/nm-quick-interactive.sh && sudo chmod +x /root/nm-quick-interactive.sh && sudo /root/nm-quick-interactive.sh
+}
+
+netmakerClient(){
+   sudo curl -sL 'https://apt.netmaker.org/gpg.key' | sudo tee /etc/apt/trusted.gpg.d/netclient.asc
+   sudo curl -sL 'https://apt.netmaker.org/debian.deb.txt' | sudo tee /etc/apt/sources.list.d/netclient.list
+   sudo apt update
+   sudo sudo apt install netclient -y
+   sudo ip -br -c a
 }

@@ -19,7 +19,7 @@ mt22="SSH TO ORACLE SERVER "
 mt23="INSTALL INITIAL SOFT "
 mt24="CONNECT COMMON SHARE "
 mt25="INSTALL NETMAKER     "
-mt26="INSTALL DOCKER/DAPPS "
+mt26="INSTALL DOCKER STACK "
 
 
 res="${GrayDT}       RESERVED      "
@@ -35,8 +35,13 @@ Q222="connect to your NginX Oracle Server"
 
 Q23="install all the initial soft"
 Q24="connect to the server common LAN NFS share ryzen2ter"
+
 Q25="setup VPN Netmaker"
-Q26="install Docker Stack and Docker Apps"
+Q251="install Nettmaker Server"
+Q252="install Nettmaker Client"
+
+
+Q26="install Docker Stack"
 
 
 #MAIN MENU QUESTION MODULES
@@ -59,16 +64,22 @@ oracleSSHconnectQuestions(){
 }
 
 QM23(){
-   askYesNoQuestionWithActions "2.3." "$Q23" desktopMain
+   askYesNoQuestionWithActions "2.3." "$Q23" generalTools
 }
 QM24(){
-   askYesNoQuestionWithActions "2.4." "$Q24" dockerMain
+   askYesNoQuestionWithActions "2.4." "$Q24" lanNFSryzen2ter
 }
+
 QM25(){
-   askYesNoQuestionWithActions "2.5." "$Q25" privateMain
+   askYesNoQuestionWithActions "2.5." "$Q25" netmakerQuestions
 }
+netmakerQuestions(){
+   askYesNoQuestionWithActions "2.5.1." "$Q251" netmakerServer
+   askYesNoQuestionWithActions "2.5.2." "$Q252" netmakerClient
+}
+
 QM26(){
-   askYesNoQuestionWithActions "2.6." "$Q26" privateMain
+   askYesNoQuestionWithActions "2.6." "$Q26" dockerStack
 }
 
 renderServerMenu(){
