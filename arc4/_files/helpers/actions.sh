@@ -27,10 +27,11 @@ connectToLan(){
 installGitLabServer(){
   clear -x
   echo -e "${quest}"
-  read -p "ENTER YOUR CUSTOM DOMAIN FOR THE GITLAB SERVER" host
+  read -p "ENTER YOUR CUSTOM DOMAIN FOR THE GITLAB SERVER (gitlab.kitqa.com): " host
   echo -e "${info}"
   sudo apt-get update
   sudo apt-get install -y curl openssh-server ca-certificates tzdata perl
   curl -s https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo os=ubuntu dist=trusty bash
   sudo EXTERNAL_URL="$host" apt-get install gitlab-ce
 }
+
